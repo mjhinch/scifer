@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
@@ -5,6 +6,19 @@ on:
     branches: [r-cmd-check]
   pull_request:
     branches: [main, master, r-cmd-check]
+=======
+# Workflow derived from https://github.com/r-lib/actions/tree/master/examples
+# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
+on:
+  push:
+    branches: 
+      - r-cmd-check
+  pull_request:
+    branches: 
+      - main
+      - master
+      - r-cmd-check
+>>>>>>> 92f0570 (add github workflow)
 
 name: R-CMD-check
 
@@ -18,7 +32,11 @@ jobs:
       fail-fast: false
       matrix:
         config:
+<<<<<<< HEAD
           - {os: macos-latest,   r: 'release'}
+=======
+          - {os: macOS-latest,   r: 'release'}
+>>>>>>> 92f0570 (add github workflow)
           - {os: windows-latest, r: 'release'}
           - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
           - {os: ubuntu-latest,   r: 'release'}
@@ -29,16 +47,25 @@ jobs:
       R_KEEP_PKG_SOURCE: yes
 
     steps:
+<<<<<<< HEAD
       - uses: actions/checkout@v3
 
       - uses: r-lib/actions/setup-pandoc@v2
 
       - uses: r-lib/actions/setup-r@v2
+=======
+      - uses: actions/checkout@v2
+
+      - uses: r-lib/actions/setup-pandoc@v1
+
+      - uses: r-lib/actions/setup-r@v1
+>>>>>>> 92f0570 (add github workflow)
         with:
           r-version: ${{ matrix.config.r }}
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
+<<<<<<< HEAD
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::rcmdcheck
@@ -47,3 +74,22 @@ jobs:
       - uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
+=======
+      - uses: r-lib/actions/setup-r-dependencies@v1
+        with:
+          extra-packages: rcmdcheck
+
+      - uses: r-lib/actions/check-r-package@v1
+
+      - name: Show testthat output
+        if: always()
+        run: find check -name 'testthat.Rout*' -exec cat '{}' \; || true
+        shell: bash
+
+      - name: Upload check results
+        if: failure()
+        uses: actions/upload-artifact@main
+        with:
+          name: ${{ runner.os }}-r${{ matrix.config.r }}-results
+          path: check
+>>>>>>> 92f0570 (add github workflow)
