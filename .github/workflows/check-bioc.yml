@@ -23,6 +23,7 @@
 on:
   push:
 <<<<<<< HEAD
+<<<<<<< HEAD
     branches: [r-cmd-check]
   pull_request:
     branches: [main, master, r-cmd-check]
@@ -31,6 +32,15 @@ on:
   pull_request:
     branches: [main, master]
 >>>>>>> 92f0570 (add github workflow)
+=======
+    branches: 
+      - r-cmd-check
+  pull_request:
+    branches: 
+      - main
+      - master
+      - r-cmd-check
+>>>>>>> 6dcce79 (add github workflow )
 
 name: R-CMD-check-bioc
 
