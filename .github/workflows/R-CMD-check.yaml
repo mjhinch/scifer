@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
@@ -8,17 +9,23 @@ on:
     branches: [main, master, r-cmd-check]
 =======
 # Workflow derived from https://github.com/r-lib/actions/tree/master/examples
+=======
+# Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
+>>>>>>> e9441bb (update github actions)
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
   push:
-    branches: 
-      - r-cmd-check
+    branches: [r-cmd-check]
   pull_request:
+<<<<<<< HEAD
     branches: 
       - main
       - master
       - r-cmd-check
 >>>>>>> 92f0570 (add github workflow)
+=======
+    branches: [main, master, r-cmd-check]
+>>>>>>> e9441bb (update github actions)
 
 name: R-CMD-check
 
@@ -33,10 +40,14 @@ jobs:
       matrix:
         config:
 <<<<<<< HEAD
+<<<<<<< HEAD
           - {os: macos-latest,   r: 'release'}
 =======
           - {os: macOS-latest,   r: 'release'}
 >>>>>>> 92f0570 (add github workflow)
+=======
+          - {os: macos-latest,   r: 'release'}
+>>>>>>> e9441bb (update github actions)
           - {os: windows-latest, r: 'release'}
           - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
           - {os: ubuntu-latest,   r: 'release'}
@@ -48,6 +59,7 @@ jobs:
 
     steps:
 <<<<<<< HEAD
+<<<<<<< HEAD
       - uses: actions/checkout@v3
 
       - uses: r-lib/actions/setup-pandoc@v2
@@ -55,16 +67,24 @@ jobs:
       - uses: r-lib/actions/setup-r@v2
 =======
       - uses: actions/checkout@v2
+=======
+      - uses: actions/checkout@v3
+>>>>>>> e9441bb (update github actions)
 
-      - uses: r-lib/actions/setup-pandoc@v1
+      - uses: r-lib/actions/setup-pandoc@v2
 
+<<<<<<< HEAD
       - uses: r-lib/actions/setup-r@v1
 >>>>>>> 92f0570 (add github workflow)
+=======
+      - uses: r-lib/actions/setup-r@v2
+>>>>>>> e9441bb (update github actions)
         with:
           r-version: ${{ matrix.config.r }}
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
+<<<<<<< HEAD
 <<<<<<< HEAD
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
@@ -76,20 +96,19 @@ jobs:
           upload-snapshots: true
 =======
       - uses: r-lib/actions/setup-r-dependencies@v1
+=======
+      - uses: r-lib/actions/setup-r-dependencies@v2
+>>>>>>> e9441bb (update github actions)
         with:
-          extra-packages: rcmdcheck
+          extra-packages: any::rcmdcheck
+          needs: check
 
-      - uses: r-lib/actions/check-r-package@v1
-
-      - name: Show testthat output
-        if: always()
-        run: find check -name 'testthat.Rout*' -exec cat '{}' \; || true
-        shell: bash
-
-      - name: Upload check results
-        if: failure()
-        uses: actions/upload-artifact@main
+      - uses: r-lib/actions/check-r-package@v2
         with:
+<<<<<<< HEAD
           name: ${{ runner.os }}-r${{ matrix.config.r }}-results
           path: check
 >>>>>>> 92f0570 (add github workflow)
+=======
+          upload-snapshots: true
+>>>>>>> e9441bb (update github actions)
