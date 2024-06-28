@@ -57,7 +57,8 @@ Imports: dplyr,
     flowCore,
     methods,
     basilisk,
-    reticulate
+    reticulate,
+    here
 RoxygenNote: 7.2.3
 VignetteBuilder: knitr
 Suggests: 

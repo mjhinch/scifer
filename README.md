@@ -4,6 +4,7 @@
 status](https://github.com/rodrigarc/scifer/workflows/R-CMD-check/badge.svg)](https://github.com/rodrigarc/scifer/actions)
 [![R-CMD-check-bioc](https://github.com/rodrigarc/scifer/workflows/R-CMD-check-bioc/badge.svg)](https://github.com/rodrigarc/scifer/actions)
 [![codecov](https://codecov.io/gh/rodrigarc/scifer/branch/r-cmd-check/graph/badge.svg)](https://codecov.io/gh/rodrigarc/scifer)
+[![R-CMD-check](https://github.com/mjhinch/scifer/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mjhinch/scifer/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 ### Integrating index single-cell sorted with Sanger sequencing raw files
