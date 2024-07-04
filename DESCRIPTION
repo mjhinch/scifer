@@ -58,7 +58,8 @@ Imports: dplyr,
     methods,
     basilisk,
     reticulate,
-    here
+    here,
+    utils
 RoxygenNote: 7.2.3
 VignetteBuilder: knitr
 Suggests: 
